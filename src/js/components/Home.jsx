@@ -11,6 +11,9 @@ const Home = () => {
 	const [listaTareas, setListaTareas] = useState([])
 
 	const agregarTarea = () => {
+		if (!tarea.trim()){
+			return
+		}
 		setListaTareas([...listaTareas, tarea])
 		setTarea('')
 	}
@@ -53,7 +56,7 @@ const Home = () => {
 								return (
 									<div key={index} className="d-flex justify-content-between" >
 										<p>- {tarea}</p>
-										<p className={`eliminar ${eliminarTarea === false ? false : true}`} onClick={() => eliminarTarea(index)}><i className="fa-solid fa-circle-xmark" style={{ color: "#a50000ff" }}></i></p>
+										<p onClick={() => eliminarTarea(index)}><i className="fa-solid fa-circle-xmark" style={{ color: "#a50000ff" }}></i></p>
 									</div>
 								)
 							})
